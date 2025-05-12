@@ -1,4 +1,5 @@
-﻿using System;
+﻿
+using System;
 using System.Collections.Generic;
 using System.Text;
 using TicTacToeRendererLib.Enums;
@@ -21,46 +22,55 @@ namespace TicTacToeSubmissionConole
         {
 
             // FOR ILLUSTRATION CHANGE TO YOUR OWN LOGIC TO DO TIC TAC TOE
-            
-            Console.SetCursorPosition(2, 19);
-
-            Console.Write("Player X");
 
             Console.SetCursorPosition(2, 20);
+            Console.Write("Player 1(X)");
 
-            Console.Write("player Y");
-            int counter = 21;
+            Console.SetCursorPosition(2, 22);
+            Console.Write("player 2(0)");
 
-            Console.SetCursorPosition(2, counter);
-
-
+            bool isPlayer1Turn = true;
             
 
             while (true)
             {
+
+                if (isPlayer1Turn)
+                {
+                    Console.SetCursorPosition(2, 24);
+                    Console.Write("Player 1 please enter Row:");
+                    var row = Console.ReadLine();
+
+                    Console.SetCursorPosition(2, 26);
+                    Console.Write("Player 1 Please enter Column:");
+                    var column = Console.ReadLine();
+
+                    _boardRenderer.AddMove(int.Parse(row), int.Parse(column), PlayerEnum.X, true);
+                }
+                else
+                {
+                    Console.SetCursorPosition(2, 24);
+                    Console.Write("Player 2 Please enter Row:   ");
+                    var row = Console.ReadLine();
+
+                    Console.SetCursorPosition(2, 26);
+                    Console.Write("Player 2 Please enter Column: ");
+                    var column = Console.ReadLine();
+
+                    _boardRenderer.AddMove(int.Parse(row), int.Parse(column), PlayerEnum.O, true);
+                }
+
+                isPlayer1Turn = !isPlayer1Turn;
+
+                //Console.SetCursorPosition(2, 23);
+                //Console.Write(new string(' ', Console.WindowWidth));
+                //Console.SetCursorPosition(2, 24);
+                //Console.Write(new string(' ', Console.WindowWidth));
                 
-                Console.Write("Please Enter Row: ");
-                var row = Console.ReadLine();
-
-                Console.SetCursorPosition(2, counter+1);
-
-                Console.Write("Please Enter Column: ");
-                var column = Console.ReadLine();
 
 
-                // THIS JUST DRAWS THE BOARD (NO TIC TAC TOE LOGIC)
-                _boardRenderer.AddMove(int.Parse(row), int.Parse(column), PlayerEnum.X, true);
-                Console.Write("Please Enter Row: ");
-                var rowO = Console.ReadLine();
-
-                Console.SetCursorPosition(2, counter + 1);
-
-                Console.Write("Please Enter Column: ");
-                var columnO = Console.ReadLine();
-                _boardRenderer.AddMove(int.Parse(rowO), int.Parse(columnO), PlayerEnum.O, true);
-
-                counter = counter + 2;
             }
+
         }
 
     }
