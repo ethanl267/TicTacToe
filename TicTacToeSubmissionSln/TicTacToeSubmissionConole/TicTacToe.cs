@@ -62,11 +62,12 @@ namespace TicTacToeSubmissionConole
 
                 isPlayer1Turn = !isPlayer1Turn;
 
-                //Console.SetCursorPosition(2, 23);
-                //Console.Write(new string(' ', Console.WindowWidth));
-                //Console.SetCursorPosition(2, 24);
-                //Console.Write(new string(' ', Console.WindowWidth));
-                
+                Console.SetCursorPosition(2, 23);
+                Console.Write(new string(' ', Console.WindowWidth));
+                Console.SetCursorPosition(2, 24);
+                Console.Write(new string(' ', Console.WindowWidth));
+                Console.SetCursorPosition(2, 26);
+                Console.Write(new string(' ', Console.WindowWidth));
 
 
             }
